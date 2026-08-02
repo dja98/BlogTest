@@ -44,42 +44,75 @@ import HeaderLink from './HeaderLink.astro';
 </header>
 <style>
 	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		width: 100%;
+		border-bottom: 1px solid var(--border);
+		background: rgba(8, 11, 17, 0.88);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
 	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: min(calc(100% - 2rem), var(--content-width));
+		margin: 0 auto;
+		padding: 0.8rem 0;
 	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
+
+	.internal-links {
 		display: flex;
+		align-items: center;
+		gap: 0.25rem;
 	}
+
+	.social-links {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.55rem 0.7rem;
+		border-radius: var(--radius-small);
+		color: var(--text-muted);
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition:
+			color 160ms ease,
+			background-color 160ms ease;
+	}
+
+	a:hover {
+		background: var(--accent-soft);
+		color: var(--accent-strong);
+	}
+
+	a.active {
+		color: var(--accent);
+	}
+
+	.social-links a {
+		padding: 0.5rem;
+	}
+
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
+		}
+
+		nav {
+			width: min(calc(100% - 1.25rem), var(--content-width));
 		}
 	}
 </style>
