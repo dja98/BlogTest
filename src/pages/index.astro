@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import hero from "../assets/hero.png";
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
@@ -15,6 +16,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<Header />
 
 		<main>
+			<img
+				src={hero.src}
+				alt="Project hero"
+				class="hero-image"
+			/>
+
 			<section class="hero">
 				<p class="eyebrow">Arduino / Sensors / Data Analysis</p>
 
@@ -103,10 +110,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 <style>
 	.hero {
-		max-width: 1000px;
-		padding: 7rem 0 5rem;
+    	max-width: 1000px;
+    	padding: 2.5rem 0 4rem;
 	}
-
 	.eyebrow,
 	.section-label,
 	.label {
@@ -118,6 +124,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		text-transform: uppercase;
 	}
 
+	.hero-image {
+		width: 100%;
+		height: 420px;
+
+		object-fit: cover;
+
+		border-radius: 20px;
+
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+
+		box-shadow:
+			0 25px 80px rgba(0,0,0,.35);
+	}
 	.hero h1 span {
 		display: block;
 		color: var(--accent);
