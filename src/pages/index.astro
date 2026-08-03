@@ -10,40 +10,277 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
+
 	<body>
 		<Header />
+
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<p class="eyebrow">Arduino / Sensors / Data Analysis</p>
+
+				<h1>
+					Building a system to
+					<span>measure the real world.</span>
+				</h1>
+
+				<p class="summary">
+					An evolving engineering project covering hardware design,
+					Arduino firmware, experimental data capture, visualization,
+					and interpretation.
+				</p>
+
+				<div class="actions">
+					<a class="primary" href="/blog">Read the build log</a>
+					<a class="secondary" href="/about">About the project</a>
+				</div>
+			</section>
+
+			<section class="status-panel" aria-label="Project status">
+				<div>
+					<span class="label">Current phase</span>
+					<strong>Defining the experiment</strong>
+				</div>
+
+				<div>
+					<span class="label">Platform</span>
+					<strong>Arduino</strong>
+				</div>
+
+				<div>
+					<span class="label">Status</span>
+					<strong class="active">
+						<span class="status-light"></span>
+						In development
+					</strong>
+				</div>
+			</section>
+
+			<section class="project-flow">
+				<p class="section-label">Project pipeline</p>
+
+				<div class="stages">
+					<article>
+						<span class="stage-number">01</span>
+						<h2>Design</h2>
+						<p>
+							Define the question, constraints, sensors, and system
+							architecture.
+						</p>
+					</article>
+
+					<article>
+						<span class="stage-number">02</span>
+						<h2>Build</h2>
+						<p>
+							Prototype the electronics and create reliable data-acquisition
+							firmware.
+						</p>
+					</article>
+
+					<article>
+						<span class="stage-number">03</span>
+						<h2>Capture</h2>
+						<p>
+							Calibrate the system and collect repeatable real-world
+							measurements.
+						</p>
+					</article>
+
+					<article>
+						<span class="stage-number">04</span>
+						<h2>Interpret</h2>
+						<p>
+							Clean, visualize, and analyze the resulting datasets.
+						</p>
+					</article>
+				</div>
+			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		max-width: 1000px;
+		padding: 7rem 0 5rem;
+	}
+
+	.eyebrow,
+	.section-label,
+	.label {
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 650;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.hero h1 span {
+		display: block;
+		color: var(--accent);
+	}
+
+	.summary {
+		max-width: 760px;
+		margin-top: 2rem;
+		color: var(--text-muted);
+		font-size: clamp(1.15rem, 2vw, 1.45rem);
+		line-height: 1.55;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		margin-top: 2.5rem;
+	}
+
+	.actions a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 48px;
+		padding: 0.7rem 1.1rem;
+		border-radius: var(--radius-small);
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		font-weight: 650;
+		letter-spacing: 0.04em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.primary {
+		border: 1px solid var(--accent);
+		background: var(--accent);
+		color: #04110d;
+	}
+
+	.primary:hover {
+		background: var(--accent-strong);
+		color: #04110d;
+	}
+
+	.secondary {
+		border: 1px solid var(--border-strong);
+		background: var(--background-raised);
+		color: var(--text);
+	}
+
+	.secondary:hover {
+		border-color: var(--accent);
+		color: var(--accent-strong);
+	}
+
+	.status-panel {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		margin-bottom: 6rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-medium);
+		background: rgba(14, 19, 29, 0.78);
+		box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+
+	.status-panel > div {
+		padding: 1.25rem 1.4rem;
+	}
+
+	.status-panel > div + div {
+		border-left: 1px solid var(--border);
+	}
+
+	.status-panel strong {
+		display: block;
+		margin-top: 0.3rem;
+		font-size: 0.95rem;
+	}
+
+	.status-panel .active {
+		color: var(--accent-strong);
+	}
+
+	.status-light {
+		display: inline-block;
+		width: 0.55rem;
+		height: 0.55rem;
+		margin-right: 0.35rem;
+		border-radius: 50%;
+		background: var(--accent);
+		box-shadow: 0 0 14px var(--accent);
+	}
+
+	.project-flow {
+		padding-bottom: 3rem;
+	}
+
+	.stages {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+
+	.stages article {
+		min-height: 230px;
+		padding: 1.4rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-medium);
+		background:
+			linear-gradient(
+				145deg,
+				rgba(20, 27, 39, 0.92),
+				rgba(9, 13, 20, 0.92)
+			);
+		transition:
+			border-color 160ms ease,
+			transform 160ms ease;
+	}
+
+	.stages article:hover {
+		border-color: var(--border-strong);
+		transform: translateY(-3px);
+	}
+
+	.stage-number {
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+	}
+
+	.stages h2 {
+		margin-top: 2rem;
+		font-size: 1.5rem;
+	}
+
+	.stages p {
+		color: var(--text-muted);
+		font-size: 0.92rem;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 850px) {
+		.stages {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 620px) {
+		.hero {
+			padding-top: 4rem;
+		}
+
+		.status-panel,
+		.stages {
+			grid-template-columns: 1fr;
+		}
+
+		.status-panel > div + div {
+			border-top: 1px solid var(--border);
+			border-left: 0;
+		}
+	}
+</style>
